@@ -1,0 +1,291 @@
+{
+  "generated_date": "2026-01-17",
+  "project_name": "Project Name",
+  "tasks_by_category": {
+    "FIX": [
+      {
+        "id": "fix_001",
+        "priority": "P1",
+        "name": "Fix Interactivity API context loss in animations",
+        "description": "Capture context before requestAnimationFrame and setTimeout callbacks to prevent undefined context errors",
+        "category": "bug_fix",
+        "agent_recommendation": "wordpress-specialist | general-purpose",
+        "estimated_context": "10k tokens",
+        "estimated_effort": "low (2-3 hours)",
+        "files_affected": [
+          "blocks/scroll-progress-indicator/view.js",
+          "blocks/product-gallery/view.js"
+        ],
+        "problem_prevented": "Runtime undefined errors when getContext() called in async callbacks",
+        "success_criteria": "No console errors, animations work correctly, context accessible in callbacks",
+        "dependencies": [],
+        "parallelizable": true
+      },
+      {
+        "id": "fix_002",
+        "priority": "P0",
+        "name": "Fix XSS vulnerability in hero slider",
+        "description": "Add proper output escaping to prevent XSS attacks",
+        "category": "security",
+        "agent_recommendation": "general-purpose",
+        "estimated_context": "8k tokens",
+        "estimated_effort": "low (2 hours)",
+        "files_affected": [
+          "inc/components/class-hero-slider.php"
+        ],
+        "problem_prevented": "Cross-site scripting (XSS) attacks",
+        "success_criteria": "All dynamic output properly escaped with esc_html()/esc_attr()/esc_url()",
+        "dependencies": [],
+        "parallelizable": true
+      }
+    ],
+    "IMPROVE": [
+      {
+        "id": "improve_001",
+        "priority": "P1",
+        "name": "Optimize JavaScript bundle size",
+        "description": "Implement webpack code splitting and lazy loading to reduce bundle from 45KB to <20KB",
+        "category": "performance",
+        "agent_recommendation": "general-purpose",
+        "estimated_context": "15k tokens",
+        "estimated_effort": "medium (8-12 hours)",
+        "files_affected": [
+          "webpack.config.js",
+          "blocks/hero-woocommerce-slider/view.js",
+          "blocks/product-gallery/view.js"
+        ],
+        "impact": "3-5s faster mobile load time, better Lighthouse score",
+        "success_criteria": "Bundle size <20KB, lazy loading implemented, no runtime errors",
+        "dependencies": [],
+        "parallelizable": true
+      },
+      {
+        "id": "improve_002",
+        "priority": "P2",
+        "name": "Add keyboard navigation to all interactive blocks",
+        "description": "Ensure WCAG 2.1 AA compliance with full keyboard navigation support",
+        "category": "accessibility",
+        "agent_recommendation": "wordpress-specialist",
+        "estimated_context": "12k tokens",
+        "estimated_effort": "medium (6-8 hours)",
+        "files_affected": [
+          "blocks/hero-woocommerce-slider/view.js",
+          "blocks/product-gallery/view.js",
+          "blocks/floating-add-to-cart/view.js"
+        ],
+        "impact": "Full keyboard navigation, WCAG 2.1 AA compliance",
+        "success_criteria": "All interactive elements keyboard-accessible, no keyboard traps, visible focus indicators",
+        "dependencies": [],
+        "parallelizable": true
+      }
+    ],
+    "REFACTOR": [
+      {
+        "id": "refactor_001",
+        "priority": "P2",
+        "name": "Extract shared validation logic",
+        "description": "Refactor duplicated form validation code into shared utility module",
+        "category": "code_quality",
+        "agent_recommendation": "general-purpose",
+        "estimated_context": "10k tokens",
+        "estimated_effort": "low (2-3 hours)",
+        "files_affected": [
+          "inc/forms/contact-form.php",
+          "inc/forms/subscription-form.php",
+          "inc/utilities/validation.php (new)"
+        ],
+        "impact": "Reduced code duplication, easier maintenance",
+        "success_criteria": "45 duplicated lines removed, single validation utility",
+        "dependencies": [],
+        "parallelizable": true
+      }
+    ],
+    "ADD": [
+      {
+        "id": "add_001",
+        "priority": "P2",
+        "name": "Create WooCommerce wishlist block",
+        "description": "Build wishlist functionality with Interactivity API for saving products",
+        "category": "new_feature",
+        "agent_recommendation": "wordpress-specialist",
+        "estimated_context": "25k tokens",
+        "estimated_effort": "high (15-20 hours)",
+        "new_files": [
+          "blocks/wishlist/",
+          "inc/components/class-wishlist.php",
+          "inc/customizer/class-wishlist-customizer.php"
+        ],
+        "dependencies": ["WooCommerce"],
+        "impact": "New ecommerce functionality, improved user experience",
+        "success_criteria": "Users can save products, view wishlist, remove items, share wishlist",
+        "parallelizable": false,
+        "depends_on": ["fix_001", "improve_001"]
+      }
+    ],
+    "TEST": [
+      {
+        "id": "test_001",
+        "priority": "P1",
+        "name": "Add unit tests for Interactivity API blocks",
+        "description": "Create Jest test suite for all interactive block view.js files",
+        "category": "quality_assurance",
+        "agent_recommendation": "test-engineer",
+        "estimated_context": "20k tokens",
+        "estimated_effort": "medium (12-15 hours)",
+        "files_affected": [
+          "blocks/*/view.js",
+          "tests/jest.config.js (new)",
+          "tests/blocks/*.test.js (new)"
+        ],
+        "coverage_target": "80%",
+        "success_criteria": "80% code coverage, all critical paths tested, CI integration",
+        "dependencies": [],
+        "parallelizable": true
+      },
+      {
+        "id": "test_002",
+        "priority": "P2",
+        "name": "Add PHPUnit tests for WordPress components",
+        "description": "Create PHPUnit tests for custom PHP classes and functions",
+        "category": "quality_assurance",
+        "agent_recommendation": "test-engineer",
+        "estimated_context": "18k tokens",
+        "estimated_effort": "medium (10-12 hours)",
+        "files_affected": [
+          "inc/components/*.php",
+          "tests/phpunit.xml (new)",
+          "tests/php/*.php (new)"
+        ],
+        "coverage_target": "70%",
+        "success_criteria": "70% PHP code coverage, hooks and filters tested",
+        "dependencies": [],
+        "parallelizable": true
+      }
+    ],
+    "DOCUMENT": [
+      {
+        "id": "doc_001",
+        "priority": "P2",
+        "name": "Create comprehensive developer documentation",
+        "description": "Document block development workflow, Interactivity API patterns, deployment process",
+        "category": "documentation",
+        "agent_recommendation": "code-documentation:docs-architect",
+        "estimated_context": "15k tokens",
+        "estimated_effort": "medium (8-10 hours)",
+        "deliverables": [
+          "docs/DEVELOPMENT.md",
+          "docs/BLOCKS.md",
+          "docs/DEPLOYMENT.md",
+          "docs/TESTING.md"
+        ],
+        "success_criteria": "Complete docs for setup, development, testing, deployment",
+        "dependencies": [],
+        "parallelizable": true
+      },
+      {
+        "id": "doc_002",
+        "priority": "P3",
+        "name": "Add inline code documentation",
+        "description": "Add PHPDoc and JSDoc comments to all functions and classes",
+        "category": "documentation",
+        "agent_recommendation": "general-purpose",
+        "estimated_context": "12k tokens",
+        "estimated_effort": "low (5-6 hours)",
+        "files_affected": ["All PHP and JS files"],
+        "success_criteria": "All public functions documented, complex logic explained",
+        "dependencies": [],
+        "parallelizable": true
+      }
+    ],
+    "DEPLOY": [
+      {
+        "id": "deploy_001",
+        "priority": "P2",
+        "name": "Setup CI/CD pipeline with GitHub Actions",
+        "description": "Automated testing, linting, and deployment workflow",
+        "category": "devops",
+        "agent_recommendation": "general-purpose",
+        "estimated_context": "12k tokens",
+        "estimated_effort": "low (4-6 hours)",
+        "new_files": [
+          ".github/workflows/ci.yml",
+          ".github/workflows/deploy.yml"
+        ],
+        "success_criteria": "Automated tests run on PR, deployment to staging/production",
+        "dependencies": ["test_001", "test_002"],
+        "parallelizable": false,
+        "depends_on": ["test_001"]
+      }
+    ]
+  },
+  "execution_phases": {
+    "phase_1_critical_fixes": {
+      "name": "Critical Fixes",
+      "goal": "Fix breaking issues, security vulnerabilities",
+      "tasks": ["fix_001", "fix_002"],
+      "parallelizable": true,
+      "priority": "P0-P1",
+      "estimated_total_effort": "4-5 hours",
+      "blocking": true
+    },
+    "phase_2_high_priority_improvements": {
+      "name": "High-Priority Improvements",
+      "goal": "Optimize performance, improve quality, add tests",
+      "tasks": ["improve_001", "improve_002", "test_001", "test_002"],
+      "parallelizable": true,
+      "priority": "P1",
+      "estimated_total_effort": "36-47 hours",
+      "blocking": false
+    },
+    "phase_3_new_features": {
+      "name": "New Features",
+      "goal": "Extend WooCommerce functionality",
+      "tasks": ["add_001"],
+      "parallelizable": false,
+      "priority": "P2",
+      "estimated_total_effort": "15-20 hours",
+      "blocking": false
+    },
+    "phase_4_refactoring_and_polish": {
+      "name": "Refactoring & Polish",
+      "goal": "Code quality, documentation",
+      "tasks": ["refactor_001", "doc_001", "doc_002"],
+      "parallelizable": true,
+      "priority": "P2-P3",
+      "estimated_total_effort": "15-19 hours",
+      "blocking": false
+    },
+    "phase_5_deployment": {
+      "name": "Deployment Setup",
+      "goal": "CI/CD, production readiness",
+      "tasks": ["deploy_001"],
+      "parallelizable": false,
+      "priority": "P2",
+      "estimated_total_effort": "4-6 hours",
+      "blocking": false
+    }
+  },
+  "total_tasks": 11,
+  "by_category": {
+    "FIX": 2,
+    "IMPROVE": 2,
+    "REFACTOR": 1,
+    "ADD": 1,
+    "TEST": 2,
+    "DOCUMENT": 2,
+    "DEPLOY": 1
+  },
+  "by_priority": {
+    "P0": 1,
+    "P1": 4,
+    "P2": 5,
+    "P3": 1
+  },
+  "total_estimated_effort": "74-97 hours",
+  "critical_path": ["fix_001", "fix_002", "improve_001", "test_001", "deploy_001"],
+  "parallelization_opportunities": {
+    "phase_1": ["fix_001", "fix_002"],
+    "phase_2": ["improve_001", "improve_002", "test_001", "test_002"],
+    "phase_4": ["refactor_001", "doc_001", "doc_002"]
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "scan_date": "2026-01-17",
+  "project_size": {
+    "total_files": 156,
+    "lines_of_code": 8500,
+    "languages": {
+      "PHP": 4200,
+      "JavaScript": 3100,
+      "CSS": 1200
+    }
+  },
+  "todos_and_fixmes": [
+    {
+      "type": "TODO",
+      "file": "blocks/hero-slider/view.js",
+      "line": 45,
+      "content": "// TODO: Add lazy loading for non-visible slides",
+      "priority": "medium",
+      "category": "performance"
+    },
+    {
+      "type": "FIXME",
+      "file": "inc/woocommerce.php",
+      "line": 123,
+      "content": "// FIXME: Race condition when multiple users update cart",
+      "priority": "high",
+      "category": "bug"
+    }
+  ],
+  "debug_code": [
+    {
+      "type": "console.log | var_dump | print_r",
+      "file": "assets/js/debug.js",
+      "line": 89,
+      "content": "console.log('Debug: cart updated', cart);",
+      "recommendation": "Remove before production"
+    }
+  ],
+  "deprecated_functions": [
+    {
+      "function": "get_posts()",
+      "file": "inc/queries.php",
+      "line": 234,
+      "deprecated_since": "WordPress 5.0",
+      "replacement": "WP_Query or get_posts() with proper args",
+      "severity": "medium"
+    }
+  ],
+  "security_concerns": [
+    {
+      "type": "potential_xss | sql_injection | csrf | etc.",
+      "file": "inc/components/class-hero-slider.php",
+      "line": 123,
+      "issue": "Direct output without escaping",
+      "code_snippet": "echo $user_input;",
+      "severity": "high | critical",
+      "recommendation": "Use esc_html(), esc_attr(), or esc_url()",
+      "cwe": "CWE-79: Cross-site Scripting"
+    },
+    {
+      "type": "unsanitized_input",
+      "file": "inc/ajax-handlers.php",
+      "line": 45,
+      "issue": "User input not sanitized before database query",
+      "severity": "critical",
+      "recommendation": "Use sanitize_text_field() or $wpdb->prepare()",
+      "cwe": "CWE-89: SQL Injection"
+    }
+  ],
+  "performance_issues": [
+    {
+      "type": "large_bundle | n_plus_one_query | blocking_script | etc.",
+      "file": "assets/js/hero-slider.js",
+      "metric": "Bundle size: 45KB (uncompressed)",
+      "impact": "3-5s slower load on 3G mobile",
+      "recommendation": "Code splitting, lazy loading, tree shaking",
+      "priority": "high"
+    },
+    {
+      "type": "n_plus_one_query",
+      "file": "inc/queries.php",
+      "line": 156,
+      "issue": "Loop queries posts individually instead of batch",
+      "impact": "N database queries instead of 1",
+      "recommendation": "Use get_posts() with post__in array",
+      "priority": "medium"
+    }
+  ],
+  "code_duplication": [
+    {
+      "pattern": "Identical validation logic",
+      "files": [
+        "inc/forms/contact-form.php",
+        "inc/forms/subscription-form.php"
+      ],
+      "lines_duplicated": 45,
+      "recommendation": "Extract to shared validation function",
+      "priority": "low"
+    }
+  ],
+  "complexity_hotspots": [
+    {
+      "file": "inc/woocommerce.php",
+      "function": "calculate_cart_total()",
+      "cyclomatic_complexity": 23,
+      "threshold": 10,
+      "recommendation": "Refactor into smaller functions",
+      "priority": "medium"
+    }
+  ],
+  "missing_error_handling": [
+    {
+      "file": "blocks/product-gallery/view.js",
+      "line": 78,
+      "issue": "Fetch API call without .catch() or try/catch",
+      "recommendation": "Add error handling and user feedback",
+      "priority": "high"
+    }
+  ],
+  "accessibility_issues": [
+    {
+      "type": "missing_aria_label | low_contrast | keyboard_trap | etc.",
+      "file": "blocks/hero-slider/render.php",
+      "line": 45,
+      "issue": "Interactive element missing ARIA label",
+      "wcag_criterion": "WCAG 2.1 AA - 4.1.2 Name, Role, Value",
+      "recommendation": "Add aria-label or aria-labelledby",
+      "priority": "medium"
+    }
+  ],
+  "code_quality_score": 8.5,
+  "breakdown": {
+    "security": 7.0,
+    "performance": 7.5,
+    "maintainability": 9.0,
+    "accessibility": 8.0,
+    "test_coverage": 0.0
+  },
+  "issue_summary": {
+    "critical": 0,
+    "high": 3,
+    "medium": 7,
+    "low": 4
+  },
+  "recommendations": [
+    "Implement automated testing (0% coverage currently)",
+    "Fix security issues (2 high-priority XSS/SQL injection risks)",
+    "Optimize bundle size (45KB → target <20KB)",
+    "Add error handling to async operations",
+    "Improve accessibility (ARIA labels, keyboard navigation)"
+  ]
+}

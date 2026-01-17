@@ -1,0 +1,45 @@
+{
+  "existing_tools": {
+    "agents": [
+      {
+        "name": "plugin-name::agent-name",
+        "use_for": "What this agent does",
+        "relevance": "high | medium | low"
+      }
+    ],
+    "skills": [
+      {
+        "name": "plugin-name:skill-name",
+        "use_for": "What this skill provides",
+        "relevance": "high | medium | low"
+      }
+    ],
+    "commands": [
+      {
+        "name": "/command-name",
+        "use_for": "What this command does"
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "technology": "Technology name",
+      "gap_type": "specialist_agent | skill | command",
+      "reason": "Why this gap exists",
+      "impact": "What problems this causes",
+      "recommendation": "Suggested tool to create"
+    }
+  ],
+  "recommendations": {
+    "create_tools": true,
+    "tools_to_create": [
+      {
+        "type": "agent | skill",
+        "name": "tool-name",
+        "location": "~/.claude/agents/tool-name.md or ~/.claude/skills/tool-name/SKILL.md",
+        "embed_problems": ["Problem 1 from problems.json", "Problem 2"],
+        "justification": "Why this tool prevents common mistakes"
+      }
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "features": [
+    {
+      "name": "hero-woocommerce-slider",
+      "type": "component | block | integration | endpoint | page",
+      "status": "complete | partial | broken | planned",
+      "description": "Brief description of what this feature does",
+      "features": [
+        "Auto-rotation",
+        "Product display",
+        "Touch gestures"
+      ],
+      "dependencies": [
+        "WooCommerce",
+        "WordPress Interactivity API"
+      ],
+      "files": [
+        "blocks/hero-woocommerce-slider/",
+        "inc/components/class-hero-slider.php"
+      ],
+      "interactivity": "WordPress Interactivity API | React | Vue | Vanilla JS",
+      "tests_present": false,
+      "documentation_present": false
+    },
+    {
+      "name": "AJAX add to cart",
+      "type": "integration",
+      "status": "complete",
+      "description": "WooCommerce cart integration with AJAX updates",
+      "features": [
+        "Add products without page reload",
+        "Cart count updates",
+        "Success notifications"
+      ],
+      "dependencies": ["WooCommerce"],
+      "files": ["assets/js/woocommerce-ajax-add-to-cart.js"],
+      "interactivity": "Vanilla JavaScript",
+      "tests_present": false,
+      "documentation_present": false
+    }
+  ],
+  "integrations": [
+    {
+      "name": "WooCommerce",
+      "version": "8.x",
+      "integration_points": [
+        "Product display blocks",
+        "Cart functionality",
+        "Customizer settings"
+      ],
+      "status": "active"
+    }
+  ],
+  "api_endpoints": [
+    {
+      "path": "/api/products",
+      "method": "GET",
+      "description": "Fetch product data",
+      "authentication": "none | JWT | session",
+      "status": "implemented | planned"
+    }
+  ],
+  "database_models": [
+    {
+      "name": "Product",
+      "type": "Custom Post Type | Table | Schema",
+      "fields": 12,
+      "relationships": ["Category", "Tag"],
+      "status": "implemented"
+    }
+  ],
+  "total_features": 15,
+  "breakdown": {
+    "complete": 12,
+    "partial": 2,
+    "broken": 1,
+    "planned": 0
+  },
+  "completion_estimate": "85%",
+  "major_missing_features": [
+    "Automated testing",
+    "Internationalization",
+    "Documentation"
+  ]
+}

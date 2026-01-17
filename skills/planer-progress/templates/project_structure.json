@@ -1,0 +1,52 @@
+{
+  "project_type": "WordPress Block Theme | Next.js App | FastAPI Backend | etc.",
+  "tech_stack": {
+    "cms_or_framework": "WordPress 6.8+ | Next.js 15 | FastAPI 0.110+",
+    "primary_language": "PHP 8.0+ | TypeScript | Python 3.11+",
+    "build_tool": "@wordpress/scripts | Vite | npm",
+    "package_manager": "npm | pnpm | poetry",
+    "secondary_languages": ["JavaScript ES6+", "CSS", "SQL"],
+    "key_libraries": [
+      "Library Name v1.0 - Purpose",
+      "Another Library v2.3 - Purpose"
+    ]
+  },
+  "directory_structure": {
+    "blocks/": "Custom Gutenberg blocks (N blocks found)",
+    "inc/": "PHP functionality (components, customizer, integrations)",
+    "assets/": "Built CSS/JS assets",
+    "src/": "Source files (uncompiled)",
+    "templates/": "FSE templates or page templates",
+    "template-parts/": "Reusable template parts",
+    "tests/": "Test files (if present)",
+    "docs/": "Documentation (if present)"
+  },
+  "entry_points": {
+    "main": "functions.php | index.tsx | main.py",
+    "config": "theme.json | next.config.js | settings.py",
+    "build_config": "webpack.config.js | vite.config.ts | pyproject.toml"
+  },
+  "estimated_size": {
+    "total_files": 156,
+    "lines_of_code": 8500,
+    "custom_components": 13,
+    "third_party_integrations": 2,
+    "complexity": "low | medium | high | very high"
+  },
+  "build_system": {
+    "tool": "webpack | vite | rollup | custom",
+    "scripts": {
+      "build": "npm run build",
+      "dev": "npm run start",
+      "test": "npm run test (if present)"
+    },
+    "output_directory": "build/ | dist/ | assets/"
+  },
+  "git_status": {
+    "has_git": true,
+    "total_commits": 247,
+    "branches": 3,
+    "last_commit_date": "2026-01-17",
+    "contributors": 1
+  }
+}

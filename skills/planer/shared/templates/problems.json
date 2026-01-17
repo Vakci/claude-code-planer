@@ -1,0 +1,81 @@
+{
+  "research_date": "YYYY-MM-DD",
+  "technologies": [
+    {
+      "name": "Technology Name",
+      "version": "Version",
+      "common_mistakes": [
+        {
+          "problem": "Problem title/summary",
+          "why": "Root cause explanation",
+          "solution": "How to fix it properly",
+          "bad_code": "Example of wrong code",
+          "good_code": "Example of correct code",
+          "frequency": "very_common | common | occasional | rare",
+          "severity": "critical | high | medium | low",
+          "detectability": "easy | moderate | hard",
+          "red_flags": [
+            "Pattern to watch for in code review",
+            "Another red flag"
+          ],
+          "when_to_watch": [
+            "Scenario where this mistake commonly occurs",
+            "Another scenario"
+          ],
+          "source": "Where this information was found (GitHub issues, docs, etc.)"
+        }
+      ],
+      "breaking_changes": [
+        {
+          "version": "Version where change occurred",
+          "change": "What changed",
+          "why": "Reason for the change",
+          "impact": "How it affects existing code",
+          "migration": "How to migrate code",
+          "deadline": "When old behavior will be removed (if applicable)",
+          "example": "Code example of migration (optional)"
+        }
+      ],
+      "best_practices": [
+        {
+          "practice": "Best practice description",
+          "why": "Why it's important",
+          "how": "How to implement it",
+          "priority": "critical | high | medium | low"
+        }
+      ],
+      "performance_tips": [
+        "Performance tip 1",
+        "Performance tip 2"
+      ],
+      "security_checklist": [
+        "Security item to check",
+        "Another security item"
+      ]
+    }
+  ],
+  "cross_cutting_concerns": [
+    {
+      "concern": "Cross-cutting concern name (e.g., Authentication, Caching)",
+      "common_mistakes": [
+        "Common mistake 1",
+        "Common mistake 2"
+      ],
+      "best_practices": [
+        "Best practice 1",
+        "Best practice 2"
+      ]
+    }
+  ],
+  "project_specific_problems": [
+    {
+      "problem": "Problem specific to existing codebase (PLANER-PROGRESS only)",
+      "current_state": "How the code currently works",
+      "why": "Why this is a problem",
+      "solution": "How to fix it",
+      "files_affected": ["file1.js", "file2.js"],
+      "priority": "high | medium | low",
+      "preventive": true
+    }
+  ]
+}

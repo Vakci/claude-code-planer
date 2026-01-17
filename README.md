@@ -339,7 +339,7 @@ You are free to use, modify, and distribute PLANER in personal and commercial pr
 
 ## 🙏 Credits
 
-**Created by:** [Your Name]
+**Created by:** Vakci & Claude Code
 **Inspired by:** Professional software architecture patterns and AI-assisted development workflows
 **Special Thanks:** Claude Code team for building an amazing developer tool
 
